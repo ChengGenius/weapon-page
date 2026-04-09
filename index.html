@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古今兵器全景图鉴 - 古今锋芒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #2A0F3D;
+            --secondary-bg: #3E1A5F;
+            --highlight: #8A5CF7;
+            --metal: #E2E4E9;
+            --gold: #BFA574;
+            --text-light: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, #1a0a2e 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ==================== 暗紫银色流动首页 ==================== */
+        .hero-homepage {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* 流动渐变背景 */
+        .hero-flow-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                #1a0a2e 0%,
+                #2A0F3D 15%,
+                #3E1A5F 30%,
+                #2A0F3D 45%,
+                #1a0a2e 60%,
+                #2A0F3D 75%,
+                #3E1A5F 90%,
+                #1a0a2e 100%
+            );
+            background-size: 400% 400%;
+            animation: flowGradient 20s ease infinite;
+        }
+
+        @keyframes flowGradient {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* 银色光晕效果 */
+        .hero-silver-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(226, 228, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(226, 228, 233, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(138, 92, 247, 0.2) 0%, transparent 60%);
+            animation: silverPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes silverPulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* 紫色流光 */
+        .hero-purple-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(138, 92, 247, 0.1) 25%,
+                rgba(138, 92, 247, 0.3) 50%,
+                rgba(138, 92, 247, 0.1) 75%,
+                transparent 100%
+            );
+            animation: purpleFlow 6s linear infinite;
+        }
+
+        @keyframes purpleFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* 银色线条 */
+        .hero-silver-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .silver-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(226, 228, 233, 0.5), transparent);
+            animation: lineMove 10s linear infinite;
+        }
+
+        @keyframes lineMove {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* 粒子效果 */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #E2E4E9 0%, #8A5CF7 50%, transparent 100%);
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-100vh) rotate(720deg); 
+                opacity: 0; 
+            }
+        }
+
+        /* 首页内容 */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 80px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #E2E4E9 0%, #8A5CF7 50%, #BFA574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(138, 92, 247, 0.5);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            letter-spacing: 8px;
+        }
+
+        @keyframes titleGlow {
+            from { 
+                filter: drop-shadow(0 0 20px rgba(138, 92, 247, 0.5)); 
+                transform: scale(1);
+            }
+            to { 
+                filter: drop-shadow(0 0 40px rgba(138, 92, 247, 0.8)); 
+                transform: scale(1.02);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 26px;
+            color: var(--metal);
+            margin-bottom: 40px;
+            letter-spacing: 6px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--highlight) 0%, #7c3aed 100%);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 10px 40px rgba(138, 92, 247, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(138, 92, 247, 0.6);
+        }
+
+        /* 滚动提示 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--metal);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--highlight);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollDot 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDot {
+            0%, 100% { top: 8px; opacity: 1; }
+            50% { top: 30px; opacity: 0.3; }
+        }
+
+        /* 进入弹窗 */
+        .entry-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 15, 61, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .entry-modal.hidden {
+            display: none;
+        }
+
+        .modal-box {
+            background: rgba(62, 26, 95, 0.9);
+            border: 1px solid var(--highlight);
+            border-radius: 16px;
+            padding: 40px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 0 40px rgba(138, 92, 247, 0.3);
+        }
+
+        .modal-box h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--highlight);
+            font-size: 28px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: var(--primary-bg);
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--highlight);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(138, 92, 247, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--highlight) 0%, #7c3aed 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(138, 92, 247, 0.5);
+        }
+
+        .guest-btn {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--highlight);
+            border-radius: 8px;
+            color: var(--highlight);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .guest-btn:hover {
+            background: rgba(138, 92, 247, 0.1);
+        }
+
+        .form-tip {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(42, 15, 61, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 40px;
+            background: rgba(42, 15, 61, 0.95);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--highlight);
+        }
+
+        .logo-icon {
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--highlight);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            padding-right: 40px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 20px;
+            color: var(--text-light);
+            width: 200px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            width: 250px;
+            box-shadow: 0 0 15px rgba(138, 92, 247, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-icon:hover {
+            color: var(--highlight);
+            transform: scale(1.1);
+        }
+
+        /* 时间轴 */
+        .timeline-container {
+            position: sticky;
+            top: 70px;
+            background: rgba(42, 15, 61, 0.9);
+            padding: 20px 0;
+            z-index: 900;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--highlight), transparent);
+            animation: flowLight 3s infinite;
+        }
+
+        @keyframes flowLight {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .timeline-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 60px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .node-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-bg);
+            border: 2px solid var(--highlight);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .timeline-node.active .node-dot,
+        .timeline-node:hover .node-dot {
+            background: var(--highlight);
+            box-shadow: 0 0 20px var(--highlight);
+            transform: scale(1.2);
+        }
+
+        .node-label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        .timeline-node.active .node-label,
+        .timeline-node:hover .node-label {
+            color: var(--highlight);
+        }
+
+        /* 主横幅 */
+        .hero-banner {
+            padding: 120px 40px 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+
+        .hero-banner h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--highlight) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-banner p {
+            font-size: 20px;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 展区通用样式 */
+        .section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--highlight);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 50px;
+        }
+
+        /* 分类标签 */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-tab {
+            padding: 10px 25px;
+            background: var(--secondary-bg);
+            border: 1px solid transparent;
+            border-radius: 25px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            border-color: var(--highlight);
+            background: rgba(138, 92, 247, 0.2);
+        }
+
+        /* 兵器卡片 */
+        .weapons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .weapon-card {
+            background: var(--secondary-bg);
+            border: 1px solid rgba(138, 92, 247, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(138, 92, 247, 0.3);
+            border-color: var(--highlight);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--primary-bg);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card-era {
+            font-size: 12px;
+            color: var(--gold);
+            background: rgba(191, 165, 116, 0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .view-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--highlight);
+            border-radius: 20px;
+            color: var(--highlight);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn:hover {
+            background: var(--highlight);
+            color: white;
+        }
+
+        .favorite-btn {
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .favorite-btn:hover,
+        .favorite-btn.active {
+            color: #fbbf24;
+            transform: scale(1.2);
+        }
+
+        /* ==================== 坦克3D展示区（使用视频）==================== */
+        .tank-showcase {
+            background: linear-gradient(180deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .tank-3d-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        /* 3D展示舞台 - 充满整个容器，无留白 */
+        .tank-3d-stage {
+            width: 100%;
+            max-width: 900px;
+            height: 550px;
+            background: radial-gradient(ellipse at center, #2A0F3D 0%, #1a0a2e 50%, #0d0518 100%);
+            border-radius: 20px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--highlight);
+            box-shadow: 0 0 40px rgba(138, 92, 247, 0.4), inset 0 0 60px rgba(138, 92, 247, 0.1);
+        }
+
+        /* 视频播放器 - 完全填充，循环播放 */
+        .tank-video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            z-index: 2;
+        }
+
+        /* 地面反射光效 - 在视频下方 */
+        .tank-ground-glow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(138, 92, 247, 0.15) 0%, transparent 100%);
+            z-index: 3;
+            pointer-events: none;
+            border-radius: 0 0 18px 18px;
+        }
+
+        .tank-info-panel {
+            background: var(--secondary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 12px;
+            padding: 30px;
+            width: 350px;
+            text-align: left;
+        }
+
+        .tank-info-panel h3 {
+            font-size: 24px;
+            color: var(--highlight);
+            margin-bottom: 20px;
+        }
+
+        .tank-spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(138, 92, 247, 0.2);
+        }
+
+        .tank-spec-label {
+            color: #aaa;
+        }
+
+        .tank-spec-value {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .tank-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tank-select-btn {
+            padding: 10px 20px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 8px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tank-select-btn:hover,
+        .tank-select-btn.active {
+            background: var(--highlight);
+        }
+
+        /* 详情弹窗 */
+        .detail-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 15, 61, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-modal.show {
+            display: flex;
+        }
+
+        .detail-content {
+            background: var(--secondary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 16px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .detail-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .detail-title {
+            font-size: 28px;
+            color: var(--highlight);
+            margin-bottom: 10px;
+        }
+
+        .detail-era {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(191, 165, 116, 0.2);
+            color: var(--gold);
+            border-radius: 15px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .detail-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .spec-item {
+            background: var(--primary-bg);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .spec-item label {
+            display: block;
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .spec-item span {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .detail-desc {
+            margin-top: 30px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .detail-desc h4 {
+            color: var(--highlight);
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            color: var(--highlight);
+        }
+
+        /* 收藏中心 */
+        .favorites-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            background: var(--secondary-bg);
+            border-left: 1px solid var(--highlight);
+            z-index: 1001;
+            transition: right 0.3s;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .favorites-panel.open {
+            right: 0;
+        }
+
+        .favorites-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .favorites-header h3 {
+            color: var(--highlight);
+        }
+
+        .favorite-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: var(--primary-bg);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .favorite-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .favorite-item-info {
+            flex: 1;
+        }
+
+        .favorite-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .favorite-item-era {
+            font-size: 12px;
+            color: var(--gold);
+        }
+
+        /* 后台管理面板 */
+        .admin-panel {
+            position: fixed;
+            left: -500px;
+            top: 0;
+            width: 500px;
+            height: 100%;
+            background: var(--secondary-bg);
+            border-right: 1px solid var(--highlight);
+            z-index: 1001;
+            transition: left 0.3s;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .admin-panel.open {
+            left: 0;
+        }
+
+        .admin-header {
+            margin-bottom: 30px;
+        }
+
+        .admin-header h3 {
+            color: var(--highlight);
+            margin-bottom: 10px;
+        }
+
+        .admin-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .admin-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #aaa;
+        }
+
+        .admin-form input,
+        .admin-form select,
+        .admin-form textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 8px;
+            color: var(--text-light);
+        }
+
+        .admin-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: var(--primary-bg);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(138, 92, 247, 0.3);
+        }
+
+        .footer p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .tank-3d-stage {
+                width: 450px;
+                height: 350px;
+            }
+            
+            .tank-info-panel {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .hero-title {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .weapons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tank-3d-stage {
+                width: 100%;
+                max-width: 350px;
+                height: 300px;
+            }
+
+            .detail-header {
+                flex-direction: column;
+            }
+
+            .detail-image {
+                width: 100%;
+            }
+        }
+
+        /* 搜索结果 */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--secondary-bg);
+            border: 1px solid var(--highlight);
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-result-item:hover {
+            background: var(--primary-bg);
+        }
+
+        /* 消息提示 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--highlight);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            z-index: 10001;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* 型号标签 */
+        .model-tag {
+            font-size: 11px;
+            color: var(--highlight);
+            background: rgba(138, 92, 247, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== 暗紫银色流动首页 ==================== -->
+    <section class="hero-homepage" id="heroHomepage">
+        <div class="hero-flow-bg"></div>
+        <div class="hero-silver-glow"></div>
+        <div class="hero-purple-flow"></div>
+        
+        <!-- 银色线条 -->
+        <div class="hero-silver-lines" id="silverLines"></div>
+        
+        <!-- 粒子效果 -->
+        <div class="hero-particles" id="heroParticles"></div>
+        
+        <!-- 内容 -->
+        <div class="hero-content">
+            <h1 class="hero-title">古今兵器图鉴</h1>
+            <p class="hero-subtitle">穿越千年 · 见证锋芒</p>
+            <button class="hero-btn" onclick="enterSite()">开始探索</button>
+        </div>
+        
+        <!-- 滚动提示 -->
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- 进入弹窗 -->
+    <div class="entry-modal" id="entryModal">
+        <div class="modal-box">
+            <h2>🗡️ 兵器图鉴 · 古今锋芒</h2>
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('login')">登录</button>
+                <button class="tab-btn" onclick="switchTab('register')">注册</button>
+            </div>
+            <div id="loginForm">
+                <div class="form-group">
+                    <input type="text" placeholder="用户名" id="loginUsername">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="密码" id="loginPassword">
+                </div>
+                <button class="submit-btn" onclick="login()">登录</button>
+            </div>
+            <div id="registerForm" style="display: none;">
+                <div class="form-group">
+                    <input type="text" placeholder="用户名" id="regUsername">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="密码" id="regPassword">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="确认密码" id="regConfirm">
+                </div>
+                <button class="submit-btn" onclick="register()">注册</button>
+            </div>
+            <button class="guest-btn" onclick="guestEnter()">游客进入</button>
+            <p class="form-tip">游客模式收藏仅本地保存，登录后云端同步</p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar" style="display: none;">
+        <div class="logo">
+            <span class="logo-icon">⚔️🔫🛡️</span>
+            <span>兵器图鉴 · 古今锋芒</span>
+        </div>
+        <div class="nav-links">
+            <a href="#cold-weapons">冷兵器</a>
+            <a href="#hot-weapons">热兵器</a>
+            <a href="#tanks">坦克专题</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <input type="text" placeholder="搜索兵器..." id="searchInput" oninput="handleSearch()">
+                <span class="search-icon">🔍</span>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <span class="nav-icon" onclick="toggleFavorites()" title="收藏中心">⭐</span>
+            <span class="nav-icon" onclick="toggleAdmin()" title="后台管理">⚙️</span>
+            <span id="userStatus">👤 游客</span>
+        </div>
+    </nav>
+
+    <!-- 时间轴 -->
+    <div class="timeline-container" id="timeline" style="display: none;">
+        <div class="timeline">
+            <div class="timeline-node active" data-section="cold-weapons" onclick="scrollToSection('cold-weapons')">
+                <div class="node-dot"></div>
+                <span class="node-label">古代 · 冷兵器</span>
+            </div>
+            <div class="timeline-node" data-section="hot-weapons" onclick="scrollToSection('hot-weapons')">
+                <div class="node-dot"></div>
+                <span class="node-label">近代 · 热兵器</span>
+            </div>
+            <div class="timeline-node" data-section="tanks" onclick="scrollToSection('tanks')">
+                <div class="node-dot"></div>
+                <span class="node-label">现代 · 坦克</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主横幅 -->
+    <div class="hero-banner" id="heroBanner" style="display: none;">
+        <h1>古今兵器全景图鉴</h1>
+        <p>穿越千年时光，探索兵器演变之路。从青铜戈矛到钢铁洪流，见证人类战争文明的辉煌历程。</p>
+    </div>
+
+    <!-- 冷兵器展区 -->
+    <section class="section" id="cold-weapons" style="display: none;">
+        <h2 class="section-title">⚔️ 冷兵器展区</h2>
+        <p class="section-subtitle">从先秦青铜到明清精钢，感受中华冷兵器的千年传承</p>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="filterWeapons('cold', 'all')">全部</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '先秦青铜')">先秦青铜</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '秦汉铁兵')">秦汉铁兵</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '三国兵器')">三国兵器</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '隋唐兵器')">隋唐兵器</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '宋元明清')">宋元明清</button>
+            <button class="category-tab" onclick="filterWeapons('cold', '古代甲胄')">古代甲胄</button>
+        </div>
+
+        <div class="weapons-grid" id="coldWeaponsGrid"></div>
+    </section>
+
+    <!-- 热兵器展区 -->
+    <section class="section" id="hot-weapons" style="display: none;">
+        <h2 class="section-title">🔥 热兵器展区</h2>
+        <p class="section-subtitle">火药改变战争，科技重塑战场——从早期火器到现代导弹</p>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="filterWeapons('hot', 'all')">全部</button>
+            <button class="category-tab" onclick="filterWeapons('hot', '早期热兵器')">早期热兵器</button>
+            <button class="category-tab" onclick="filterWeapons('hot', '近代热兵器')">近代热兵器</button>
+            <button class="category-tab" onclick="filterWeapons('hot', '现代轻武器')">现代轻武器</button>
+            <button class="category-tab" onclick="filterWeapons('hot', '现代火炮')">现代火炮</button>
+            <button class="category-tab" onclick="filterWeapons('hot', '现代导弹')">现代导弹</button>
+        </div>
+
+        <div class="weapons-grid" id="hotWeaponsGrid"></div>
+    </section>
+
+    <!-- ==================== 坦克专题展区（视频版）==================== -->
+    <section class="tank-showcase" id="tanks" style="display: none;">
+        <h2 class="section-title">🛡️ 坦克专题展区</h2>
+        <p class="section-subtitle">中国坦克工业70余年辉煌历程，从仿制到引领的跨越式发展</p>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="filterTanks('all')">全部</button>
+            <button class="category-tab" onclick="filterTanks('初代仿制')">初代仿制</button>
+            <button class="category-tab" onclick="filterTanks('自主研发')">自主研发</button>
+            <button class="category-tab" onclick="filterTanks('第三代巅峰')">第三代巅峰</button>
+            <button class="category-tab" onclick="filterTanks('轻型外贸')">轻型/外贸</button>
+        </div>
+
+        <div class="tank-3d-container">
+            <div class="tank-3d-stage" id="tankStage">
+                <div class="tank-ground"></div>
+                <!-- 使用新坦克模型视频 - 自动循环播放 -->
+                <video class="tank-video-player" id="tankVideo" loop muted autoplay playsinline>
+                    <source src="新坦克模型.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+            <div class="tank-info-panel" id="tankInfoPanel">
+                <h3 id="tankName">99A主战坦克</h3>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">战斗全重</span>
+                    <span class="tank-spec-value" id="tankWeight">55吨</span>
+                </div>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">乘员</span>
+                    <span class="tank-spec-value" id="tankCrew">3人</span>
+                </div>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">主炮</span>
+                    <span class="tank-spec-value" id="tankGun">125mm高膛压滑膛炮</span>
+                </div>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">最大速度</span>
+                    <span class="tank-spec-value" id="tankSpeed">75公里/小时</span>
+                </div>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">最大行程</span>
+                    <span class="tank-spec-value" id="tankRange">600公里</span>
+                </div>
+                <div class="tank-spec">
+                    <span class="tank-spec-label">动力系统</span>
+                    <span class="tank-spec-value" id="tankPower">1500马力</span>
+                </div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <button class="view-btn" onclick="showTankDetail()">查看详情</button>
+                    <button class="view-btn" onclick="toggleFavoriteTank()">⭐ 收藏</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tank-selector" id="tankSelector"></div>
+
+        <div class="weapons-grid" id="tankGrid" style="margin-top: 50px;"></div>
+    </section>
+
+    <!-- 收藏中心面板 -->
+    <div class="favorites-panel" id="favoritesPanel">
+        <div class="favorites-header">
+            <h3>⭐ 我的收藏</h3>
+            <span onclick="toggleFavorites()" style="cursor: pointer;">✕</span>
+        </div>
+        <div id="favoritesList">
+            <p style="color: #aaa; text-align: center;">暂无收藏</p>
+        </div>
+    </div>
+
+    <!-- 后台管理面板 -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h3>⚙️ 后台管理</h3>
+            <span onclick="toggleAdmin()" style="cursor: pointer; float: right;">✕</span>
+        </div>
+        <div class="admin-form">
+            <div class="form-group">
+                <label>选择类型</label>
+                <select id="adminType">
+                    <option value="cold">冷兵器</option>
+                    <option value="hot">热兵器</option>
+                    <option value="tank">坦克</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>名称</label>
+                <input type="text" id="adminName" placeholder="兵器名称">
+            </div>
+            <div class="form-group">
+                <label>分类</label>
+                <input type="text" id="adminCategory" placeholder="小分类">
+            </div>
+            <div class="form-group">
+                <label>朝代/时代</label>
+                <input type="text" id="adminEra" placeholder="朝代或时代">
+            </div>
+            <div class="form-group">
+                <label>简介</label>
+                <textarea id="adminDesc" placeholder="兵器简介"></textarea>
+            </div>
+            <div class="form-group">
+                <label>图片路径</label>
+                <input type="text" id="adminImage" placeholder="images/分类/图片名.png">
+            </div>
+            <button class="submit-btn" onclick="addWeapon()">添加兵器</button>
+        </div>
+    </div>
+
+    <!-- 详情弹窗 -->
+    <div class="detail-modal" id="detailModal">
+        <span class="close-btn" onclick="closeDetail()">✕</span>
+        <div class="detail-content" id="detailContent"></div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div class="toast" id="toast"></div>
+
+    <!-- 页脚 -->
+    <footer class="footer" id="footer" style="display: none;">
+        <p>古今兵器全景图鉴 - 全国大学生计算机设计大赛作品</p>
+        <p style="font-size: 12px;">主色调：暗紫科技风 | 历史时间轴串联 | 3D坦克展示台</p>
+        <div class="footer-links">
+            <a href="#cold-weapons">冷兵器</a>
+            <a href="#hot-weapons">热兵器</a>
+            <a href="#tanks">坦克专题</a>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== 首页特效初始化 ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initHeroEffects();
+            checkGuestStatus();
+        });
+
+        // 初始化首页特效
+        function initHeroEffects() {
+            // 创建粒子
+            const particlesContainer = document.getElementById('heroParticles');
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+
+            // 创建银色线条
+            const linesContainer = document.getElementById('silverLines');
+            for (let i = 0; i < 8; i++) {
+                const line = document.createElement('div');
+                line.className = 'silver-line';
+                line.style.top = (15 + i * 10) + '%';
+                line.style.width = (100 + Math.random() * 200) + 'px';
+                line.style.animationDelay = (i * 1.5) + 's';
+                line.style.animationDuration = (8 + Math.random() * 5) + 's';
+                linesContainer.appendChild(line);
+            }
+        }
+
+        // 进入网站
+        function enterSite() {
+            document.getElementById('entryModal').classList.remove('hidden');
+        }
+
+        // ==================== 冷兵器数据 ====================
+        const coldWeapons = [
+            { id: 1, name: '青铜剑', category: '先秦青铜', era: '先秦时期', image: 'images/冷兵器/image1.png', 
+              specs: { length: '50-80厘米', weight: '0.5-1公斤', material: '青铜合金' },
+              desc: '青铜剑是先秦时期最重要的短兵器，被誉为"百兵之君"。越王勾践剑是其巅峰之作，代表了先秦青铜铸造技术的最高水平。剑身修长，双刃锋利，是贵族身份的象征。' },
+            { id: 2, name: '青铜戈', category: '先秦青铜', era: '先秦时期', image: 'images/冷兵器/image2.png',
+              specs: { length: '戈头20-30cm', weight: '0.3-0.5公斤', material: '青铜戈头，木柄' },
+              desc: '青铜戈是中国特有的冷兵器，诞生于3500年前，是车战专用武器。戈头呈"丁"字形，可勾、可啄、可推，在先秦车战中发挥巨大作用。' },
+            { id: 3, name: '青铜戟', category: '先秦青铜', era: '先秦时期', image: 'images/冷兵器/image3.png',
+              specs: { length: '通长4米以上', weight: '1-2公斤', material: '青铜戈头与矛头组合' },
+              desc: '青铜戟是戈与矛的组合体，既可刺又可勾，是战国"五兵"之一。戟头集合了戈的勾啄功能和矛的刺击功能，威力强大。' },
+            { id: 4, name: '青铜矛', category: '先秦青铜', era: '先秦时期', image: 'images/冷兵器/image4.png',
+              specs: { length: '矛头15-25cm', weight: '0.2-0.4公斤', material: '青铜矛头，木柄' },
+              desc: '矛是最古老的长柄兵器之一，后来演变为枪，成为十八般武器之一。青铜矛头锋利，配合长柄可在车战中远距离刺杀敌人。' },
+            { id: 5, name: '秦剑', category: '秦汉铁兵', era: '秦代', image: 'images/冷兵器/image5.png',
+              specs: { length: '81-94厘米', weight: '0.8-1公斤', material: '青铜，铬盐氧化处理' },
+              desc: '秦剑是目前已知最长的青铜剑，采用铬盐氧化处理技术，历经两千多年依然锋利不锈。秦始皇兵马俑出土的秦剑展现了惊人的铸造工艺。' },
+            { id: 6, name: '环首刀', category: '秦汉铁兵', era: '汉代', image: 'images/冷兵器/image6.png',
+              specs: { length: '100-115厘米', weight: '1-1.5公斤', material: '钢铁，30次折叠锻打' },
+              desc: '环首刀是汉代最具代表性的冷兵器，彻底取代了剑，成为军队标配。刀柄末端有圆环，可系绳防脱，刀身单刃，更适合劈砍。' },
+            { id: 7, name: '汉铁剑', category: '秦汉铁兵', era: '汉代', image: 'images/冷兵器/image7.png',
+              specs: { length: '最长可达140厘米', weight: '1-1.5公斤', material: '钢铁，复合锻造' },
+              desc: '汉代铁剑在长度上全面超越青铜剑，锻造技术更加成熟。铁剑作为身份象征的地位依然稳固，是文人武将的标配武器。' },
+            { id: 8, name: '青龙偃月刀', category: '三国兵器', era: '三国时期', image: 'images/冷兵器/image8.png',
+              specs: { length: '2-2.5米', weight: '约20公斤+', material: '钢铁锻造' },
+              desc: '因关羽而闻名，在中国文化中象征着忠义与勇武。刀身如偃月，刀背有青龙纹饰，重达数十斤，非力大者不能使用。' },
+            { id: 9, name: '方天画戟', category: '三国兵器', era: '三国时期', image: 'images/冷兵器/image9.png',
+              specs: { length: '3-4米', weight: '传说百斤以上', material: '钢铁' },
+              desc: '三国时期吕布使用的兵器，"辕门射戟"的故事使其名声大噪。戟头装饰华丽，两侧有月牙刃，可刺可勾可砍。' },
+            { id: 10, name: '双戟', category: '三国兵器', era: '三国时期', image: 'images/冷兵器/image10.png',
+              specs: { length: '1.5-2米', weight: '约20公斤', material: '钢铁' },
+              desc: '三国时期典韦以使用双戟闻名，是力量型武将的标志性武器。双戟短小精悍，左右开弓，适合近身搏杀。' },
+            { id: 11, name: '唐刀', category: '隋唐兵器', era: '唐代', image: 'images/冷兵器/image11.png',
+              specs: { length: '80-100厘米', weight: '0.8-1.2公斤', material: '优质钢铁，包钢工艺' },
+              desc: '唐刀代表了当时世界最先进的制刀工艺，被视为日本刀的鼻祖。唐刀采用包钢工艺，刀身直刃，锋利无比。' },
+            { id: 12, name: '陌刀', category: '隋唐兵器', era: '唐代', image: 'images/冷兵器/image12.png',
+              specs: { length: '3-4米', weight: '约7.5公斤', material: '钢铁' },
+              desc: '陌刀专门用于步兵对抗骑兵，威力巨大。唐代名将李嗣业率领陌刀队，"如墙而进，人马俱碎"，是克制骑兵的利器。' },
+            { id: 13, name: '锏', category: '隋唐兵器', era: '唐代', image: 'images/冷兵器/image13.png',
+              specs: { length: '60-80厘米', weight: '2-4公斤', material: '铁或铜' },
+              desc: '因秦琼、尉迟恭使用而闻名，是中国传统文化中正义和威严的象征。锏身四棱，无刃，靠钝击伤敌，可破铠甲。' },
+            { id: 14, name: '雁翎刀', category: '宋元明清', era: '宋代', image: 'images/冷兵器/image14.png',
+              specs: { length: '约90厘米', weight: '1-1.5公斤', material: '钢铁，夹钢工艺' },
+              desc: '因形似大雁的翎毛而得名，兼具劈砍和刺击功能。刀身弧度优美，刀尖上翘，适合骑兵使用。' },
+            { id: 15, name: '偃月刀', category: '宋元明清', era: '宋代', image: 'images/冷兵器/image15.png',
+              specs: { length: '2-2.5米', weight: '3-5公斤', material: '钢铁' },
+              desc: '宋代制式兵器之一，造型华丽，常作仪仗操练用途。刀身宽大，形如偃月，展示军人威严。' },
+            { id: 16, name: '朴刀', category: '宋元明清', era: '宋代', image: 'images/冷兵器/image16.png',
+              specs: { length: '1.5-2米', weight: '2-3公斤', material: '钢铁' },
+              desc: '宋代步兵使用的长柄刀，《水浒传》中武松打虎时使用的就是朴刀。刀身窄长，轻便灵活，适合步兵野战。' },
+            { id: 17, name: '明代腰刀', category: '宋元明清', era: '明代', image: 'images/冷兵器/image17.png',
+              specs: { length: '70-90厘米', weight: '1-1.5公斤', material: '钢铁，夹钢或包钢' },
+              desc: '吸收了日本太刀的优点，在抗倭战争中发挥了重要作用。刀身微弧，佩于腰间，是明代军队的标准装备。' },
+            { id: 18, name: '戚氏军刀', category: '宋元明清', era: '明代', image: 'images/冷兵器/image18.png',
+              specs: { length: '约89厘米', weight: '1-1.2公斤', material: '优质钢材' },
+              desc: '戚继光改良的军刀，在抗倭战争中发挥了巨大作用。刀身设计兼顾劈砍和刺击，是戚家军的标志性武器。' },
+            { id: 19, name: '清代雁翎腰刀', category: '宋元明清', era: '清代', image: 'images/冷兵器/image19.png',
+              specs: { length: '约90厘米', weight: '1-1.5公斤', material: '钢铁，夹钢工艺' },
+              desc: '清太宗皇太极御用宝刀，锻造精细。刀身形似雁翎，装饰华丽，是清代皇家武器的代表。' },
+            { id: 20, name: '皮甲', category: '古代甲胄', era: '先秦时期', image: 'images/冷兵器/image20.png',
+              specs: { coverage: '全身防护', weight: '5-10公斤', material: '犀牛皮、牛皮' },
+              desc: '先秦时期最普遍的防护装备。皮甲以多层皮革缝制，轻便灵活，能有效防护刀剑劈砍。' },
+            { id: 21, name: '青铜甲', category: '古代甲胄', era: '先秦时期', image: 'images/冷兵器/image21.png',
+              specs: { coverage: '胸背防护', weight: '10-15公斤', material: '青铜合金' },
+              desc: '出现于商周时期，是身份和地位的象征。青铜甲防护力强，但重量大，多为将领使用。' },
+            { id: 22, name: '秦汉铁甲', category: '古代甲胄', era: '秦汉时期', image: 'images/冷兵器/image22.png',
+              specs: { coverage: '全身防护', weight: '15-25公斤', material: '铁质甲片' },
+              desc: '中国甲胄从皮甲向铁甲过渡的关键时期。铁甲以铁片编缀而成，防护力大大提升。' },
+            { id: 23, name: '鱼鳞甲', category: '古代甲胄', era: '秦汉时期', image: 'images/冷兵器/image23.png',
+              specs: { coverage: '全身防护', weight: '20-30公斤', material: '铁或青铜甲片' },
+              desc: '因甲片排列如鱼鳞而得名，制作工艺复杂。甲片层层叠压，活动自如，防护全面。' },
+            { id: 24, name: '明光铠', category: '古代甲胄', era: '三国至唐', image: 'images/冷兵器/image24.png',
+              specs: { coverage: '全身防护', weight: '25-45公斤', material: '钢铁，护心镜' },
+              desc: '因胸前背后装有椭圆形护心镜而得名，可反射阳光，威慑敌人。唐代明光铠是中国甲胄的巅峰之作。' },
+            { id: 25, name: '步人甲', category: '古代甲胄', era: '宋代', image: 'images/冷兵器/image25.png',
+              specs: { coverage: '全身防护', weight: '20-35公斤', material: '钢铁甲片' },
+              desc: '宋代步兵装备的重型铠甲，防护面积大，可抵御强弓硬弩。步人甲重达数十斤，士兵需有强健体魄。' },
+            { id: 26, name: '棉甲', category: '古代甲胄', era: '明清时期', image: 'images/冷兵器/image26.png',
+              specs: { coverage: '全身防护', weight: '10-20公斤', material: '棉布内衬铁片' },
+              desc: '专为抵御火器而设计的新型铠甲。棉甲以厚棉布缝制，内衬铁片，轻便保暖，对火器有一定防护效果。' }
+        ];
+
+        // ==================== 热兵器数据 ====================
+        const hotWeapons = [
+            { id: 101, name: '突火枪', model: '南宋长竹突火枪', category: '早期热兵器', era: '南宋', image: 'images/热兵器_new/image1.png',
+              specs: { caliber: '约20mm', range: '15-20m', rof: '单发', ammo: '铁屑+瓷片' },
+              desc: '世界首款管形射击火器，南宋开庆年间创制。枪筒长约1.2m，竹质（楠竹），装药量约30g黑火药。虽实战性能有限，但开创了管形火器的先河。' },
+            { id: 102, name: '火药箭', model: '北宋火药燃烧箭', category: '早期热兵器', era: '北宋', image: 'images/热兵器_new/image2.png',
+              specs: { caliber: '火药筒约0.2m', range: '约150m', rof: '单发', ammo: '燃烧型黑火药' },
+              desc: '北宋初期《武经总要》记载的首款火药箭，主要用于战场焚烧敌方粮草、营帐、攻城器械。' },
+            { id: 103, name: '火铳', model: '元至正手铳', category: '早期热兵器', era: '元明', image: 'images/热兵器_new/image3.png',
+              specs: { caliber: '约15mm', range: '约30m', rof: '单发', ammo: '铁弹' },
+              desc: '中国首款规模化装备的金属管形火器。主要配给蒙古骑兵与城防士兵。' },
+            { id: 104, name: '洪武碗口铳', model: '明洪武碗口铳', category: '早期热兵器', era: '明代', image: 'images/热兵器_new/image4.png',
+              specs: { caliber: '约100mm', range: '约80m', rof: '约5分钟/发', ammo: '石弹' },
+              desc: '明代开国初期定型的重型火铳，碗状炮口便于装填大口径弹丸。' },
+            { id: 105, name: '火药动力投石机', model: '元回回炮', category: '早期热兵器', era: '宋元', image: 'images/热兵器_new/image5.png',
+              specs: { caliber: '石弹约50kg', range: '约300m', rof: '约10分钟/发', ammo: '石弹/火药罐' },
+              desc: '在西域回回炮基础上加装火药助推装置，射程翻倍。' },
+            { id: 106, name: '火绳枪', model: '西班牙穆什克特', category: '近代热兵器', era: '16世纪', image: 'images/热兵器_new/image6.png',
+              specs: { caliber: '约23mm', range: '有效80m', rof: '约1发/2分钟', ammo: '铅弹' },
+              desc: '16世纪西班牙主流火绳枪，是欧洲近代早期军队的核心单兵火器。' },
+            { id: 107, name: '燧发枪', model: '法国沙勒维尔', category: '近代热兵器', era: '17世纪', image: 'images/热兵器_new/image7.png',
+              specs: { caliber: '约17.5mm', range: '有效100m', rof: '约2发/分钟', ammo: '铅弹' },
+              desc: '17世纪法国沙勒维尔兵工厂定型，是欧洲首款大规模装备的线膛燧发枪。' },
+            { id: 108, name: '棕贝丝燧发枪', model: '英国棕贝丝', category: '近代热兵器', era: '18世纪', image: 'images/热兵器_new/image8.png',
+              specs: { caliber: '约19mm', range: '有效90m', rof: '约2发/分钟', ammo: '铅弹' },
+              desc: '18世纪英国主流燧发枪，参与了七年战争、美国独立战争、拿破仑战争。' },
+            { id: 109, name: '左轮手枪', model: '柯尔特1836型', category: '近代热兵器', era: '19世纪', image: 'images/热兵器_new/image9.png',
+              specs: { caliber: '约9mm', range: '有效20m', rof: '6发连续', ammo: '弹巢供弹' },
+              desc: '1836年塞缪尔·柯尔特设计，世界首款实用化左轮手枪。' },
+            { id: 110, name: '陆军左轮', model: '柯尔特1860型', category: '近代热兵器', era: '19世纪', image: 'images/热兵器_new/image10.png',
+              specs: { caliber: '约11.43mm', range: '有效30m', rof: '6发连续', ammo: '弹巢供弹' },
+              desc: '1860年柯尔特公司为美国陆军设计，是美国南北战争中北方军队的制式左轮手枪。' },
+            { id: 111, name: 'AK-47自动步枪', model: 'AK-47', category: '现代轻武器', era: '1947年至今', image: 'images/热兵器_new/image11.png',
+              specs: { caliber: '7.62mm', range: '有效300m', rof: '600发/分钟', ammo: '30发弹匣' },
+              desc: '世界上使用最广泛的自动步枪，结构简单、可靠性极高。' },
+            { id: 112, name: 'M16A4自动步枪', model: 'M16A4', category: '现代轻武器', era: '1964年至今', image: 'images/热兵器_new/image12.png',
+              specs: { caliber: '5.56mm', range: '有效600m', rof: '700-950发/分钟', ammo: '30发弹匣' },
+              desc: '美国现役制式自动步枪，小口径精准度高。' },
+            { id: 113, name: 'MP40冲锋枪', model: 'MP40', category: '现代轻武器', era: '1940年', image: 'images/热兵器_new/image13.png',
+              specs: { caliber: '9mm', range: '有效100m', rof: '500发/分钟', ammo: '32发弹匣' },
+              desc: '二战德国主力冲锋枪，折叠枪托便携性高。' },
+            { id: 114, name: '汤姆森冲锋枪', model: 'M1928', category: '现代轻武器', era: '1928年', image: 'images/热兵器_new/image14.png',
+              specs: { caliber: '11.43mm', range: '有效150m', rof: '600发/分钟', ammo: '20/30发弹匣' },
+              desc: '二战美军核心冲锋枪，大口径威力大。' },
+            { id: 115, name: 'MG42通用机枪', model: 'MG42', category: '现代轻武器', era: '1942年', image: 'images/热兵器_new/image15.png',
+              specs: { caliber: '7.92mm', range: '有效800-1000m', rof: '1200-1500发/分钟', ammo: '弹链供弹' },
+              desc: '现代通用机枪的鼻祖，射速极快。' },
+            { id: 116, name: '格洛克17手枪', model: 'Glock 17', category: '现代轻武器', era: '1980年至今', image: 'images/热兵器_new/image16.png',
+              specs: { caliber: '9mm', range: '有效50m', rof: '半自动', ammo: '17发弹匣' },
+              desc: '世界上使用最广泛的半自动手枪。' },
+            { id: 117, name: '59式加农炮', model: '59式130mm', category: '现代火炮', era: '1959年', image: 'images/热兵器_new/image17.png',
+              specs: { caliber: '130mm', range: '最大30km', rof: '6-8发/分钟', ammo: '榴弹/穿甲弹' },
+              desc: '中国陆军经典加农炮，长身管、低伸弹道。' },
+            { id: 118, name: 'M777榴弹炮', model: 'M777 155mm', category: '现代火炮', era: '2005年', image: 'images/热兵器_new/image18.png',
+              specs: { caliber: '155mm', range: '最大40km', rof: '5发/分钟', ammo: '常规弹/制导弹' },
+              desc: '世界首款轻量化155mm榴弹炮。' },
+            { id: 119, name: 'PLZ-05加榴炮', model: 'PLZ-05 155mm', category: '现代火炮', era: '2005年', image: 'images/热兵器_new/image19.png',
+              specs: { caliber: '155mm', range: '最大70km', rof: '8-10发/分钟', ammo: '增程制导弹' },
+              desc: '中国陆军现役主力自行加榴炮。' },
+            { id: 120, name: 'PHL-191火箭炮', model: 'PHL-191', category: '现代火炮', era: '2019年', image: 'images/热兵器_new/image20.png',
+              specs: { caliber: '300/370/750mm', range: '最大500km', rof: '1发/秒', ammo: '制导火箭弹' },
+              desc: '世界最先进的火箭炮之一。' },
+            { id: 121, name: '厄利孔高射炮', model: '35mm双管', category: '现代火炮', era: '1970年代', image: 'images/热兵器_new/image21.png',
+              specs: { caliber: '35mm', range: '有效6000m', rof: '1100发/分钟', ammo: '穿甲弹/高爆弹' },
+              desc: '世界经典中口径高射炮。' },
+            { id: 122, name: '铁拳3反坦克炮', model: '铁拳3', category: '现代火炮', era: '1980年代', image: 'images/热兵器_new/image22.png',
+              specs: { caliber: '60-110mm', range: '有效300-500m', rof: '单发', ammo: '破甲弹' },
+              desc: '世界经典单兵反坦克炮。' },
+            { id: 123, name: '东风-41洲际导弹', model: 'DF-41', category: '现代导弹', era: '现役', image: 'images/热兵器_new/image23.png',
+              specs: { caliber: '弹径2.78m', range: '14000-15000km', rof: '-', ammo: '10枚分导核弹头' },
+              desc: '中国现役最先进的洲际弹道导弹。' },
+            { id: 124, name: '长剑-10巡航导弹', model: 'CJ-10', category: '现代导弹', era: '现役', image: 'images/热兵器_new/image24.png',
+              specs: { caliber: '弹径0.68m', range: '1500-2500km', rof: '-', ammo: '常规/核弹头' },
+              desc: '中国现役主力远程巡航导弹。' },
+            { id: 125, name: '东风-17高超声速导弹', model: 'DF-17', category: '现代导弹', era: '2019年', image: 'images/热兵器_new/image25.png',
+              specs: { caliber: '弹径约1.2m', range: '1800-2500km', rof: '-', ammo: '常规弹头' },
+              desc: '世界首款实战化部署的高超声速滑翔导弹。' },
+            { id: 126, name: '82-2式手榴弹', model: '82-2式', category: '现代轻武器', era: '1982年', image: 'images/热兵器_new/image26.png',
+              specs: { caliber: '直径52mm', range: '投掷约40m', rof: '-', ammo: '40g TNT' },
+              desc: '中国陆军现役主力手榴弹。' },
+            { id: 127, name: 'MK2破片手榴弹', model: 'MK2', category: '现代轻武器', era: '1918年', image: 'images/热兵器_new/image27.png',
+              specs: { caliber: '直径57mm', range: '投掷约35m', rof: '-', ammo: '56g TNT' },
+              desc: '世界经典破片手榴弹。' }
+        ];
+
+        // ==================== 坦克数据 ====================
+        const tanks = [
+            { id: 201, name: '59式主战坦克', category: '初代仿制', era: '1959年', image: 'images/坦克/image1.png', 
+              specs: { weight: '36吨', crew: '4人', gun: '100mm D-10T线膛炮', speed: '50公里/小时', range: '560公里', power: '520马力' },
+              desc: '中国首款量产型主战坦克，终结了中国不能自主生产坦克的历史。' },
+            { id: 202, name: '69式主战坦克', category: '初代仿制', era: '1969年', image: 'images/坦克/image2.jpeg',
+              specs: { weight: '36.5吨', crew: '4人', gun: '100mm滑膛炮', speed: '50公里/小时', range: '440公里', power: '580马力' },
+              desc: '中国首款完全自主研发的主战坦克。' },
+            { id: 203, name: '79式主战坦克', category: '初代仿制', era: '1979年', image: 'images/坦克/image3.jpeg',
+              specs: { weight: '37.5吨', crew: '4人', gun: '105mm线膛炮', speed: '50公里/小时', range: '500公里', power: '580马力' },
+              desc: '中西技术融合的典范。' },
+            { id: 204, name: '88式主战坦克', category: '自主研发', era: '1988年', image: 'images/坦克/image4.jpeg',
+              specs: { weight: '38吨', crew: '4人', gun: '105mm线膛炮', speed: '57公里/小时', range: '500公里', power: '730马力' },
+              desc: '中国首款正式列装的第二代主战坦克。' },
+            { id: 205, name: '96式主战坦克', category: '自主研发', era: '1996年', image: 'images/坦克/image5.jpeg',
+              specs: { weight: '42吨', crew: '3人', gun: '125mm滑膛炮', speed: '45公里/小时', range: '500公里', power: '800马力' },
+              desc: '陆军现役列装数量最多的主战坦克。' },
+            { id: 206, name: '96B主战坦克', category: '自主研发', era: '2015年', image: 'images/坦克/image6.jpeg',
+              specs: { weight: '42吨', crew: '3人', gun: '125mm滑膛炮', speed: '70公里/小时', range: '500公里', power: '1000马力' },
+              desc: '96系列深度改进型号。' },
+            { id: 207, name: '99式主战坦克', category: '第三代巅峰', era: '1999年', image: 'images/坦克/image3.png',
+              specs: { weight: '51吨', crew: '3人', gun: '125mm滑膛炮', speed: '70公里/小时', range: '600公里', power: '1200马力' },
+              desc: '中国首款自主研发的第三代主战坦克。' },
+            { id: 208, name: '99A主战坦克', category: '第三代巅峰', era: '2010年代', image: 'images/坦克/image4.png',
+              specs: { weight: '55吨', crew: '3人', gun: '125mm高膛压滑膛炮', speed: '75公里/小时', range: '600公里', power: '1500马力' },
+              desc: '中国第三代主战坦克巅峰之作。' },
+            { id: 209, name: '15式轻型坦克', category: '轻型外贸', era: '2018年', image: 'images/坦克/image5.png',
+              specs: { weight: '33-36吨', crew: '3-4人', gun: '105mm线膛炮', speed: '70公里/小时', range: '450公里', power: '900马力' },
+              desc: '全球首款正式列装的新一代信息化轻型坦克。' },
+            { id: 210, name: 'VT-4主战坦克', category: '轻型外贸', era: '2014年', image: 'images/坦克/image6.png',
+              specs: { weight: '52吨', crew: '3人', gun: '125mm高膛压滑膛炮', speed: '67公里/小时', range: '500公里', power: '1200马力' },
+              desc: '中国新一代外贸旗舰主战坦克。' },
+            { id: 211, name: 'VT-5轻型坦克', category: '轻型外贸', era: '2016年', image: 'images/坦克/image7.jpeg',
+              specs: { weight: '33-38吨', crew: '3-4人', gun: '105mm高膛压线膛炮', speed: '70公里/小时', range: '500公里', power: '1000马力' },
+              desc: '全球军贸市场唯一全新研发的新一代轻型坦克。' }
+        ];
+
+        let currentTank = tanks.find(t => t.id === 208);
+        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        let isLoggedIn = false;
+        let currentUser = '游客';
+
+        function checkGuestStatus() {
+            const guest = localStorage.getItem('guest');
+            if (guest === 'true') {
+                document.getElementById('heroHomepage').style.display = 'flex';
+            }
+        }
+
+        // ==================== 登录注册 ====================
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tab === 'login') {
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('registerForm').style.display = 'none';
+            } else {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'block';
+            }
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (username && password) {
+                isLoggedIn = true;
+                currentUser = username;
+                document.getElementById('userStatus').textContent = '👤 ' + username;
+                showMainContent();
+                showToast('登录成功！欢迎回来，' + username);
+            } else {
+                showToast('请输入用户名和密码');
+            }
+        }
+
+        function register() {
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const confirm = document.getElementById('regConfirm').value;
+            
+            if (!username || !password) {
+                showToast('请填写完整信息');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showToast('两次密码输入不一致');
+                return;
+            }
+            
+            isLoggedIn = true;
+            currentUser = username;
+            document.getElementById('userStatus').textContent = '👤 ' + username;
+            showMainContent();
+            showToast('注册成功！欢迎，' + username);
+        }
+
+        function guestEnter() {
+            localStorage.setItem('guest', 'true');
+            showMainContent();
+            showToast('游客模式进入，收藏将保存到本地');
+        }
+
+        function showMainContent() {
+            document.getElementById('entryModal').classList.add('hidden');
+            document.getElementById('heroHomepage').style.display = 'none';
+            
+            // 显示所有内容
+            document.getElementById('navbar').style.display = 'flex';
+            document.getElementById('timeline').style.display = 'block';
+            document.getElementById('heroBanner').style.display = 'block';
+            document.getElementById('cold-weapons').style.display = 'block';
+            document.getElementById('hot-weapons').style.display = 'block';
+            document.getElementById('tanks').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
+            
+            // 渲染内容
+            renderColdWeapons();
+            renderHotWeapons();
+            renderTanks();
+            renderTankSelector();
+            updateTankDisplay(currentTank);
+            initScrollListener();
+        }
+
+        // ==================== 渲染函数 ====================
+        function renderColdWeapons(filter = 'all') {
+            const grid = document.getElementById('coldWeaponsGrid');
+            const filtered = filter === 'all' ? coldWeapons : coldWeapons.filter(w => w.category === filter);
+            grid.innerHTML = filtered.map(w => createWeaponCard(w, 'cold')).join('');
+        }
+
+        function renderHotWeapons(filter = 'all') {
+            const grid = document.getElementById('hotWeaponsGrid');
+            const filtered = filter === 'all' ? hotWeapons : hotWeapons.filter(w => w.category === filter);
+            grid.innerHTML = filtered.map(w => createWeaponCard(w, 'hot')).join('');
+        }
+
+        function renderTanks(filter = 'all') {
+            const grid = document.getElementById('tankGrid');
+            const filtered = filter === 'all' ? tanks : tanks.filter(t => t.category === filter);
+            grid.innerHTML = filtered.map(t => createTankCard(t)).join('');
+        }
+
+        function createWeaponCard(weapon, type) {
+            const isFavorite = favorites.some(f => f.id === weapon.id);
+            const modelTag = weapon.model ? `<span class="model-tag">${weapon.model}</span>` : '';
+            return `
+                <div class="weapon-card" onclick="showDetail(${weapon.id}, '${type}')">
+                    <img src="${weapon.image}" alt="${weapon.name}" class="card-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22200%22><rect fill=%22%232A0F3D%22 width=%22100%25%22 height=%22100%25%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%238A5CF7%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2240%22>⚔️</text></svg>'">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-title">${weapon.name}${modelTag}</span>
+                            <span class="card-era">${weapon.era}</span>
+                        </div>
+                        <p class="card-desc">${weapon.desc.substring(0, 60)}...</p>
+                        <div class="card-footer">
+                            <button class="view-btn" onclick="event.stopPropagation(); showDetail(${weapon.id}, '${type}')">查看详情</button>
+                            <span class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${weapon.id}, '${type}')">${isFavorite ? '⭐' : '☆'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createTankCard(tank) {
+            const isFavorite = favorites.some(f => f.id === tank.id);
+            return `
+                <div class="weapon-card" onclick="showDetail(${tank.id}, 'tank')">
+                    <img src="${tank.image}" alt="${tank.name}" class="card-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22200%22><rect fill=%22%232A0F3D%22 width=%22100%25%22 height=%22100%25%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%238A5CF7%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2240%22>🛡️</text></svg>'">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-title">${tank.name}</span>
+                            <span class="card-era">${tank.era}</span>
+                        </div>
+                        <p class="card-desc">${tank.desc.substring(0, 60)}...</p>
+                        <div class="card-footer">
+                            <button class="view-btn" onclick="event.stopPropagation(); showDetail(${tank.id}, 'tank')">查看详情</button>
+                            <span class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${tank.id}, 'tank')">${isFavorite ? '⭐' : '☆'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==================== 坦克选择 ====================
+        function renderTankSelector() {
+            const selector = document.getElementById('tankSelector');
+            selector.innerHTML = tanks.map(t => `
+                <button class="tank-select-btn ${t.id === currentTank.id ? 'active' : ''}" onclick="selectTank(${t.id})">${t.name}</button>
+            `).join('');
+        }
+
+        function selectTank(id) {
+            currentTank = tanks.find(t => t.id === id);
+            updateTankDisplay(currentTank);
+            
+            document.querySelectorAll('.tank-select-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === currentTank.name) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function updateTankDisplay(tank) {
+            document.getElementById('tankName').textContent = tank.name;
+            document.getElementById('tankWeight').textContent = tank.specs.weight;
+            document.getElementById('tankCrew').textContent = tank.specs.crew;
+            document.getElementById('tankGun').textContent = tank.specs.gun;
+            document.getElementById('tankSpeed').textContent = tank.specs.speed;
+            document.getElementById('tankRange').textContent = tank.specs.range;
+            document.getElementById('tankPower').textContent = tank.specs.power;
+        }
+
+        function showTankDetail() {
+            showDetail(currentTank.id, 'tank');
+        }
+
+        function toggleFavoriteTank() {
+            toggleFavorite(currentTank.id, 'tank');
+        }
+
+        // ==================== 详情弹窗 ====================
+        function showDetail(id, type) {
+            let weapon;
+            if (type === 'cold') weapon = coldWeapons.find(w => w.id === id);
+            else if (type === 'hot') weapon = hotWeapons.find(w => w.id === id);
+            else weapon = tanks.find(t => t.id === id);
+            
+            if (!weapon) return;
+            
+            const isFavorite = favorites.some(f => f.id === weapon.id);
+            const modelTag = weapon.model ? `<span class="model-tag">${weapon.model}</span>` : '';
+            
+            let specsHtml = '';
+            if (type === 'cold') {
+                specsHtml = `
+                    <div class="spec-item"><label>长度</label><span>${weapon.specs.length}</span></div>
+                    <div class="spec-item"><label>重量</label><span>${weapon.specs.weight}</span></div>
+                    <div class="spec-item"><label>材质</label><span>${weapon.specs.material}</span></div>
+                `;
+            } else if (type === 'hot') {
+                specsHtml = `
+                    <div class="spec-item"><label>口径</label><span>${weapon.specs.caliber}</span></div>
+                    <div class="spec-item"><label>射程</label><span>${weapon.specs.range}</span></div>
+                    <div class="spec-item"><label>射速</label><span>${weapon.specs.rof}</span></div>
+                    <div class="spec-item"><label>弹药</label><span>${weapon.specs.ammo}</span></div>
+                `;
+            } else {
+                specsHtml = `
+                    <div class="spec-item"><label>战斗全重</label><span>${weapon.specs.weight}</span></div>
+                    <div class="spec-item"><label>乘员</label><span>${weapon.specs.crew}</span></div>
+                    <div class="spec-item"><label>主炮</label><span>${weapon.specs.gun}</span></div>
+                    <div class="spec-item"><label>最大速度</label><span>${weapon.specs.speed}</span></div>
+                    <div class="spec-item"><label>最大行程</label><span>${weapon.specs.range}</span></div>
+                    <div class="spec-item"><label>动力系统</label><span>${weapon.specs.power}</span></div>
+                `;
+            }
+            
+            document.getElementById('detailContent').innerHTML = `
+                <div class="detail-header">
+                    <img src="${weapon.image}" alt="${weapon.name}" class="detail-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect fill=%22%232A0F3D%22 width=%22100%25%22 height=%22100%25%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%238A5CF7%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22>⚔️</text></svg>'">
+                    <div>
+                        <h2 class="detail-title">${weapon.name}${modelTag}</h2>
+                        <span class="detail-era">${weapon.era}</span>
+                        <p style="color: #aaa; margin-top: 10px;">分类：${weapon.category}</p>
+                    </div>
+                </div>
+                <div class="detail-specs">
+                    ${specsHtml}
+                </div>
+                <div class="detail-desc">
+                    <h4>详细介绍</h4>
+                    <p>${weapon.desc}</p>
+                </div>
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="submit-btn" style="width: auto; padding: 12px 40px;" onclick="toggleFavorite(${weapon.id}, '${type}'); showToast('收藏成功！');">
+                        ${isFavorite ? '⭐ 已收藏' : '☆ 加入收藏'}
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('detailModal').classList.add('show');
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').classList.remove('show');
+        }
+
+        // ==================== 筛选 ====================
+        function filterWeapons(type, category) {
+            const tabs = event.target.parentElement.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (type === 'cold') renderColdWeapons(category);
+            else renderHotWeapons(category);
+        }
+
+        function filterTanks(category) {
+            const tabs = event.target.parentElement.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            renderTanks(category);
+        }
+
+        // ==================== 收藏 ====================
+        function toggleFavorite(id, type) {
+            const index = favorites.findIndex(f => f.id === id);
+            
+            if (index > -1) {
+                favorites.splice(index, 1);
+                showToast('已取消收藏');
+            } else {
+                let weapon;
+                if (type === 'cold') weapon = coldWeapons.find(w => w.id === id);
+                else if (type === 'hot') weapon = hotWeapons.find(w => w.id === id);
+                else weapon = tanks.find(t => t.id === id);
+                favorites.push({ id: weapon.id, name: weapon.name, era: weapon.era, image: weapon.image, type: type });
+                showToast('收藏成功！');
+            }
+            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            renderColdWeapons();
+            renderHotWeapons();
+            renderTanks();
+            renderFavorites();
+        }
+
+        function renderFavorites() {
+            const list = document.getElementById('favoritesList');
+            if (favorites.length === 0) {
+                list.innerHTML = '<p style="color: #aaa; text-align: center;">暂无收藏</p>';
+                return;
+            }
+            
+            list.innerHTML = favorites.map(f => `
+                <div class="favorite-item">
+                    <img src="${f.image}" alt="${f.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect fill=%22%232A0F3D%22 width=%22100%25%22 height=%22100%25%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%238A5CF7%22 text-anchor=%22middle%22 dy=%22.3em%22>⚔️</text></svg>'">
+                    <div class="favorite-item-info">
+                        <div class="favorite-item-title">${f.name}</div>
+                        <div class="favorite-item-era">${f.era}</div>
+                    </div>
+                    <span style="cursor: pointer;" onclick="toggleFavorite(${f.id}, '${f.type}')">✕</span>
+                </div>
+            `).join('');
+        }
+
+        function toggleFavorites() {
+            document.getElementById('favoritesPanel').classList.toggle('open');
+            renderFavorites();
+        }
+
+        function toggleAdmin() {
+            document.getElementById('adminPanel').classList.toggle('open');
+        }
+
+        function addWeapon() {
+            showToast('兵器添加功能需要后端支持');
+        }
+
+        // ==================== 搜索 ====================
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            
+            if (query.length < 2) {
+                results.classList.remove('show');
+                return;
+            }
+            
+            const allWeapons = [
+                ...coldWeapons.map(w => ({ ...w, type: 'cold' })),
+                ...hotWeapons.map(w => ({ ...w, type: 'hot' })),
+                ...tanks.map(t => ({ ...t, type: 'tank' }))
+            ];
+            
+            const matches = allWeapons.filter(w => 
+                w.name.toLowerCase().includes(query) ||
+                w.era.toLowerCase().includes(query) ||
+                w.category.toLowerCase().includes(query)
+            );
+            
+            if (matches.length > 0) {
+                results.innerHTML = matches.slice(0, 6).map(m => `
+                    <div class="search-result-item" onclick="showDetail(${m.id}, '${m.type}')">
+                        <strong>${m.name}</strong>
+                        <span style="color: #aaa; font-size: 12px; margin-left: 10px;">${m.era}</span>
+                    </div>
+                `).join('');
+                results.classList.add('show');
+            } else {
+                results.innerHTML = '<div class="search-result-item">未找到相关兵器</div>';
+                results.classList.add('show');
+            }
+        }
+
+        // ==================== 滚动监听 ====================
+        function initScrollListener() {
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                const sections = ['cold-weapons', 'hot-weapons', 'tanks'];
+                const nodes = document.querySelectorAll('.timeline-node');
+                
+                sections.forEach((section, index) => {
+                    const el = document.getElementById(section);
+                    if (el) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= 300 && rect.bottom >= 300) {
+                            nodes.forEach(n => n.classList.remove('active'));
+                            nodes[index].classList.add('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // 点击外部关闭
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-box')) {
+                document.getElementById('searchResults').classList.remove('show');
+            }
+            if (e.target.id === 'detailModal') {
+                closeDetail();
+            }
+        });
+    </script>
+</body>
+</html>
